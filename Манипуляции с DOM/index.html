@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="todo-list-task">
+                <input type="text" class="todo-list-task__input" placeholder="Добавьте задачу">
+                <div class="todo-list-task__btn" onclick="addItem()">Добавить</div>
+            </div>
+            <div class="todo-list-header">
+                <div class="todo-list-header__text">Список дел</div>
+                <div class="todo-list-header__filter">
+                    <select name="" id="">
+                        <option value="все">все</option>
+                        <option value="завершённые">завершённые</option>
+                        <option value="активные">активные</option>
+                    </select>
+                </div>
+            </div>
+            <div class="todo-list"></div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

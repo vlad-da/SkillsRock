@@ -1,0 +1,33 @@
+.loader {
+    display: none;
+}
+.loader-active {
+    display: block;
+    font-size: 50px;
+    margin: 0 auto;
+    width: fit-content;
+    position: relative;
+}
+
+.list {
+    display: none;
+    width: 500px;
+    margin: 0 auto;
+}
+
+
+.list-active {
+    display: block;
+}
+
+
+.list__item {
+    border: 1px solid #3d36c5;
+    padding: 6px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.list__name, .list__mail {
+    margin-bottom: 6px;
+}
