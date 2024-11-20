@@ -6,6 +6,7 @@ let tasks = [];
 let arr = [];
 let count = 0;
 
+// добавляет элемент
 function addItem() {
     if(inputAdd.value === '') {
         console.log('Пусто');
@@ -17,13 +18,14 @@ function addItem() {
     arr = [...tasks];
     reloadList();
 }
-
+//изменяет состояние чекбокса
 function toggleChecked(index) {
     tasks[index].checked = !tasks[index].checked;
     console.log(tasks[index]);
     
 }
 
+// обновляет список задач
 function reloadList() {
     list.innerHTML = '';
 
@@ -31,41 +33,42 @@ function reloadList() {
         let div = document.createElement('div');
         div.innerHTML = `
         <div class="todo-list__item ${task.checked ? 'active' : ''}">
-            <input type="checkbox" class="todo-list__checkbox ${task.checked ? 'active' : ''}"  id="id-${index}" />
+            <input type="checkbox" ${task.checked ? 'checked' : ''} class="todo-list__checkbox"  id="id-${index}" />
             <label for="id-${index}">${task.text}</label>
             <img src="./close.svg" alt="close" onclick="deleteItem(${index})">
         </div>
         `;
+        //изменяет состояние чекбокса
         div.addEventListener('change', () => toggleChecked(index));
         list.append(div);
     });
     
 }
 
+//удаление
 function deleteItem(index) {
     tasks.splice(index, 1);
     reloadList();
 }
 
+
+//значение для фильтра
 const select = document.querySelector('select'); // выбираем элемент select
 select.addEventListener('change', function(){  
     const selectedValue = select.value;
-    // this в этом контексте - элемент, который запустил фукнцию. То же, что и select.value;
-    console.log( selectedValue );
-    // filterTasks(selectedValue);
+    filterTasks(selectedValue);
 });
 
-
-// function filterTasks(value) {
-//     if(value === 'все' ) {
-//         tasks = arr;
-//     }
-//     if(value === 'завершённые' ) {
-//         tasks = tasks.filter(item => item.checked);
-//     }
-//     if(value === 'активные' ) {
-//         tasks = tasks.filter(item => item.checked);
-//     }
-//     reloadList();
-//     console.log(arr);
-// }
+//фильтр
+function filterTasks(value) {
+    if(value === 'все' ) {
+        tasks = arr;
+    }
+    if(value === 'завершённые' ) {
+        tasks = [...arr].filter(item => item.checked);
+    }
+    if(value === 'активные' ) {
+        tasks = [...arr].filter(item => !item.checked);
+    }
+    reloadList();
+}
