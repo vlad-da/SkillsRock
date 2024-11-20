@@ -17,7 +17,7 @@ const setList = (arr) => {
     }
     );
 
-   list.classList.add('list-active');
+   list.classList.toggle('list-active');
 }
 
 // создаёт промис с задержкой для синхронных запросов
